@@ -1,6 +1,12 @@
-from fastapi import FastAPI, APIRouter
-from controller.users_controller import users_router
+from fastapi import FastAPI
+from controller.users.users_controller import *
+from service.users.users_service import *
+from repository.users.users_repository import *
 
 app = FastAPI()
 
-app.include_router(users_router, prefix="/api")
+users_repository = UsersRepository()
+users_service = UsersService(users_repository)
+init_users_controller()
+
+app.include_router(users_router)
