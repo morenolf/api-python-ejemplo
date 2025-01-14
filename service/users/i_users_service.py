@@ -1,6 +1,0 @@
-from abc import ABC, abstractmethod
-
-class IUsersService(ABC):
-    @abstractmethod
-    def get_by_id(self, id: int):
-        pass
